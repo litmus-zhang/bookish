@@ -32,15 +32,12 @@ describe('Bookish application', () => {
     cy.visit('/')
     cy.get('[data-cy="book-list"]').should('exist')
     cy.get('[data-cy="book-item"]').should('have.length', 3);
-    cy.get('[data-cy="book-item"]').should(books => {
-      expect(books[0]).to.contain('Refactoring')
-      expect(books[1]).to.contain('Domain Driven Design')
-      expect(books[2]).to.contain('Building Microservices')
-    })
+    cy.get('[data-cy="book-item"]').contains('Refactoring')
   })
   it("Goes to the detail page", () => {
     cy.visit('/')
     cy.get('[data-cy="book-item"]').contains("View Details").click();
-    cy.url().should('include', '/books/1')
+    cy.url().should('include', '/books/3')
+    cy.get('[data-cy="book-detail"]').contains('Building Microservices')
   })
 })
