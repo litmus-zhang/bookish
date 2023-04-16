@@ -52,4 +52,17 @@ describe("BookList", () => {
     const description = content.querySelector("p");
     expect(description.innerHTML).toEqual(props.book.description);
   });
+  it("displays the bookname  when no description is given", () => {
+    const props = {
+      book: {
+        name: "Refactoring",
+      },
+    };
+    const { container } = render(<BookDetail {...props} />);
+    const content = container.querySelector("div");
+    const title = content.querySelector("h2");
+    expect(title.innerHTML).toEqual("Refactoring");
+    const description = content.querySelector("p");
+    expect(description.innerHTML).toEqual("");
+  });
 });
