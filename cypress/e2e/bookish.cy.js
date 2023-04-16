@@ -40,4 +40,12 @@ describe('Bookish application', () => {
     cy.url().should('include', '/books/3')
     cy.get('[data-cy="book-detail"]').contains('Building Microservices')
   })
+  it("searched for a title", () => {
+    cy.visit('/')
+    cy.get('[data-cy="book-item"]').should('have.length', 3);
+    cy.get('[data-cy="search-input"]').type('Refactoring')
+    cy.get('[data-cy="book-item"]').should('have.length', 1);
+    cy.get('[data-cy="book-item"]').contains('Refactoring');
+
+  })
 })

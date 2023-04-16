@@ -12,8 +12,8 @@ export const useRemoteService = (url, initialData) => {
       setError(false);
       setLoading(true);
       try {
-        const { data } = await axios.get(url);
-        setData(data);
+        const res = await axios.get(url);
+        setData(res.data);
         console.log(data);
       } catch (err) {
         setError(true);

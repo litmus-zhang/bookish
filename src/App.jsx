@@ -1,12 +1,10 @@
-import { Typography } from "@mui/material";
 import BookListContainer from "./book/BookListContainer";
-import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
       <div className="">
-        <Typography variant="h2" component="h2" data-cy="heading">
+        <h2 className="text-2xl" data-cy="heading">
           Bookish
-        </Typography>
+        </h2>
         <BookListContainer />
       </div>
   );
